@@ -8,9 +8,7 @@ deploy_stage:
   stage: deploy
   environment: Stage
   only:
-    - teste
+    - master
   script:
-    - rm ./package-lock.json
     - npm install
-    - ./node_modules/@angular/cli/bin/ng test
-    - ./node_modules/@angular/cli/bin/ng e2e
+    - ng e2e
