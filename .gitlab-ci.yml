@@ -8,7 +8,7 @@ deploy_stage:
   stage: deploy
   environment: Stage
   only:
-    - test
+    - teste
   script:
     - rm ./package-lock.json
     - npm install
