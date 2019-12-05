@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LetsPlayComponent } from './lets-play/lets-play.component';
+import { ChannelComponent } from './channel/channel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LetsPlayComponent
+    LetsPlayComponent,
+    ChannelComponent
   ],
   imports: [
     BrowserModule,
