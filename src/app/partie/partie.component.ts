@@ -48,8 +48,12 @@ export class PartieComponent implements OnInit {
 
   ngOnInit() {
     //console.log(this.images);
+
+    //Observer
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
-      fetch(ROUTE)
+      
+    
+    fetch(ROUTE)
         .then(response => response.clone().json())
         .then(data => {
           console.log("Recieved data from Express API :", data)
