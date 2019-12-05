@@ -1,4 +1,5 @@
 import { Component, OnInit , Input } from '@angular/core';
+import { GameService } from "../game.service";
 
 const ROUTE = 'http://localhost:8080/partie';
 const ROUTE_IMAGES = 'http://localhost:8080/partie/images';
@@ -14,12 +15,13 @@ export class PartieComponent implements OnInit {
   imgFileName:string = "bus.jpg";
 
   public data;
+  public choixCat:string;
   public tabImages;
 
   public images:{id:number,nom:string,categorie:string}[];
   public index = 0;
 
-  constructor() { 
+  constructor(private gameService:GameService) { 
     this.images = [
       {
         "id": 0,
@@ -46,6 +48,7 @@ export class PartieComponent implements OnInit {
 
   ngOnInit() {
     //console.log(this.images);
+    this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
       fetch(ROUTE)
         .then(response => response.clone().json())
         .then(data => {

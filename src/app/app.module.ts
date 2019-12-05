@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LetsPlayComponent } from './lets-play/lets-play.component';
 import { PartieComponent } from './partie/partie.component';
+import { ChoixCategorieComponent } from './choix-categorie/choix-categorie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LetsPlayComponent,
-    PartieComponent
+    PartieComponent,
+    ChoixCategorieComponent
   ],
   imports: [
     BrowserModule,
