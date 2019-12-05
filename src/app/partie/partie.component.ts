@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
 
+const ROUTE = 'http://localhost:8080/partie';
+const ROUTE_IMAGES = 'http://localhost:8080/partie/images';
 
 @Component({
   selector: 'app-partie',
@@ -7,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partie.component.css']
 })
 export class PartieComponent implements OnInit {
+
+  @Input() imgPath:string = "/images/deplacements/";
+  imgFileName:string = "bus.jpg";
+
+  public data;
+  public tabImages;
 
   public images:{id:number,nom:string,categorie:string}[];
   public index = 0;
@@ -37,7 +45,18 @@ export class PartieComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.images);
+    //console.log(this.images);
+      fetch(ROUTE)
+        .then(response => response.clone().json())
+        .then(data => {
+          console.log("Recieved data from Express API :", data)
+          this.data = data
+        })
+        .catch(err => {
+          console.error("Error :", err)
+        })
+    
+    
   }
 
   onOui(){
