@@ -1,1 +1,8 @@
-<p>partie works!</p>
+<div> <!---- *ngFor="let image of images" -->
+<img [src]="images[index].nom">
+</div>
+<div class="reponse">
+    <button (click)="onOui()">Oui</button>
+    <button (click)="onNon()">Non</button>
+    <button (click)="onJsp()">Je ne sais pas</button>
+</div>
