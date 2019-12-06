@@ -17,11 +17,13 @@ export class PartieComponent implements OnInit {
   public data;
   public choixCat:string;
   public tabImages;
+  public ordreFiltre;
 
   public images:{id:number,nom:string,categorie:string}[];
   public index = 0;
 
   constructor(private gameService:GameService) { 
+    this.ordreFiltre = gameService.ordreFiltreDefault;
     this.images = [
       {
         "id": 0,
@@ -51,7 +53,7 @@ export class PartieComponent implements OnInit {
 
     //Observer
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
-      
+    this.ordreFiltre = this.gameService.ordreFiltreDefault;
     
     fetch(ROUTE)
         .then(response => response.clone().json())

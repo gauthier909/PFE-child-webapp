@@ -10,6 +10,8 @@ export class GameService {
   private choixCat = new BehaviorSubject<string>("message");
   currentMessage = this.choixCat.asObservable();
 
+  ordreFiltreDefault:any=['J\'aime','Avec aide','Content'];
+
 
   constructor(private htpp:HttpClient) { }
 

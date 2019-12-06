@@ -1,5 +1,6 @@
 <h1>{{choixCat}}</h1>
-<div class="mainFrame"> <!---- *ngFor="let image of images" -->
+<div *ngFor="let filtre of ordreFiltre" class="mainFrame"> <!---- *ngFor="let image of images" -->
+    <h2>{{filtre}}</h2>
 <img [src]="images[index].nom">
 <img src="/images/deplacements/bus.jpg">
 <img class="logo" [src]="(imgPath + imgFileName)" />
