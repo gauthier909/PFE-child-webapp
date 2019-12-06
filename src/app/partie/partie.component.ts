@@ -14,13 +14,18 @@ export class PartieComponent implements OnInit {
   @Input() imgPath:string = "/images/deplacements/";
   imgFileName:string = "bus.jpg";
 
+  public isOnAime=false;
+  public isOnAide=false;
+  public isOnContent=false;
   public data;
   public choixCat:string;
   public tabImages;
   public ordreFiltre;
+  public filtre;
 
   public images:{id:number,nom:string,categorie:string}[];
-  public index = 0;
+  public indexImage = 0;
+  public indexFiltre=0;
 
   constructor(private gameService:GameService) { 
     this.ordreFiltre = gameService.ordreFiltreDefault;
@@ -54,6 +59,10 @@ export class PartieComponent implements OnInit {
     //Observer
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
     this.ordreFiltre = this.gameService.ordreFiltreDefault;
+
+    this.filtre = this.ordreFiltre[this.indexFiltre];
+    this.switchFiltre();
+
     
     fetch(ROUTE)
         .then(response => response.clone().json())
@@ -69,24 +78,66 @@ export class PartieComponent implements OnInit {
   }
 
   onOui(){
-    if(this.index >= this.images.length){
-      //fin partie
+    console.log(this.indexImage)
+    console.log(this.images.length);
+    if(this.indexImage +1 >= this.images.length){
+      this.indexFiltre++;
+      this.switchFiltre();
+      if(this.indexFiltre >=this.ordreFiltre.length){
+        //fin partie
+        console.log("fin partie")
+      }
+      
     }
-    this.index++;
+    this.indexImage++;
   }
 
   onNon(){
-    if(this.index >= this.images.length){
-      //fin partie
+    if(this.indexImage + 1 >= this.images.length){
+      this.indexFiltre++;
+      this.switchFiltre();
+      if(this.indexFiltre >=this.ordreFiltre.length){
+        //fin partie
+        console.log("fin partie")
+      }
     }
-    this.index++;
+    this.indexImage++;
   }
 
   onJsp(){
-    if(this.index >= this.images.length){
-      //fin partie
+    if(this.indexImage + 1 >= this.images.length){
+      this.switchFiltre();
+      this.indexFiltre++;
+      if(this.indexFiltre >=this.ordreFiltre.length){
+        //fin partie
+        console.log("fin partie")
+      }
     }
-    this.index++;
+    this.indexImage++;
+  }
+
+  switchFiltre(){
+    this.indexImage = 0;
+    if(this.ordreFiltre[this.indexFiltre] === 'J\'aime'){
+      this.isOnAide=false;
+      this.isOnContent = false;
+      this.isOnAime= true;
+      console.log('switch')
+    }
+
+    if(this.ordreFiltre[this.indexFiltre] === 'Avec aide'){
+      this.isOnAime = false;
+      this.isOnContent = false;
+      this.isOnAide= true;
+      console.log('switch')
+    }
+
+    if(this.ordreFiltre[this.indexFiltre] === 'Content'){
+      this.isOnAime = false;
+      this.isOnAide = false;
+      this.isOnContent= true;
+      console.log('switch')
+    }
   }
 
 }
