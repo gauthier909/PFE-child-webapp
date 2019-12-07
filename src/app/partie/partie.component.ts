@@ -14,14 +14,14 @@ export class PartieComponent implements OnInit {
   @Input() imgPath:string = "/images/deplacements/";
   imgFileName:string = "bus.jpg";
 
-  public isOnAime=false;
+  public isOnAime=false; //Pour permettre l'affichage du bon filtre au bon moment
   public isOnAide=false;
   public isOnContent=false;
   public data;
   public choixCat:string;
-  public tabImages;
-  public ordreFiltre;
-  public filtre;
+  public tabImages; // tableau contenant toutes les images de la DB
+  public ordreFiltre; //tableau contenant l'odre dans lequel les filtres apparaissent
+  public filtre; //Le filtre actuel
 
   public images:{id:number,nom:string,categorie:string}[];
   public indexImage = 0;
