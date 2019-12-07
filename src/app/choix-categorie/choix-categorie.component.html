@@ -1,0 +1,5 @@
+<h2>Choisi la catégorie dont tu voudrais parler ! :)</h2>
+<ul *ngFor="let cat of categories"> 
+    <li><button (click)="clickChoixCat(cat)">{{cat}}</button>
+</li>
+</ul>

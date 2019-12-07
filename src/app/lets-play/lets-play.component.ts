@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {GameService} from '../../services/game.service';
+
 
 @Component({
   selector: 'app-lets-play',
@@ -7,12 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LetsPlayComponent implements OnInit {
 
-  constructor() { }
+  users:Object;
+
+  constructor(private data:GameService) { }
 
   ngOnInit() {
+
   }
+  
+  
   onLetsPlay(){
+    this.data.onLetsPlay().subscribe(data => {
+      this.users = data;
+      //console.log(this.users);
+    });
+
     
+
   }
 
 }
