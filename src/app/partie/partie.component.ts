@@ -1,5 +1,5 @@
 import { Component, OnInit , Input } from '@angular/core';
-import { GameService } from "../game.service";
+import { GameService } from "../../services/game.service";
 
 const ROUTE = 'http://localhost:8080/partie';
 const ROUTE_IMAGES = 'http://localhost:8080/partie/images';
@@ -73,8 +73,6 @@ export class PartieComponent implements OnInit {
         .catch(err => {
           console.error("Error :", err)
         })
-    
-    
   }
 
   onOui(){

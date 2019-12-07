@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from "../game.service";
+import { GameService } from "../../services/game.service";
 import { Router } from '@angular/router';
+import { CategorieService } from 'src/services/categorie.service';
+import { Categorie } from '../classes/categorie';
 
 @Component({
   selector: 'app-choix-categorie',
@@ -9,11 +11,14 @@ import { Router } from '@angular/router';
 })
 export class ChoixCategorieComponent implements OnInit {
 
-  public categories:any=['Deplacement',"Habitation","Loisirs","Nutrition","Relations","Responsabilités","Soins"];
+  categories : string[];
   public choixCat:string;
-  constructor(private gameService:GameService,private router: Router) { }
+
+  constructor(private gameService:GameService,private router: Router,
+    private categorieService : CategorieService) { }
 
   ngOnInit() {
+    this.getCategories();
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat)
   }
 
@@ -23,5 +28,9 @@ export class ChoixCategorieComponent implements OnInit {
     this.gameService.updateChoix(this.choixCat);
     this.router.navigateByUrl('/partie');
   }
+  getCategories() : void {
+    this.categorieService.getCategories().subscribe(categories => this.categories = categories)
+    console.log(this.categories)
+   }
 
 }
