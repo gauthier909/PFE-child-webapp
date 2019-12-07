@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from "../../services/game.service";
 import { Router } from '@angular/router';
 import { CategorieService } from 'src/services/categorie.service';
-import { Categorie } from '../classes/categorie';
 
 @Component({
   selector: 'app-choix-categorie',

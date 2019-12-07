@@ -8,8 +8,8 @@ import {ChoixCategorieComponent} from './choix-categorie/choix-categorie.compone
 const routes: Routes = [
   { path: '', component: LetsPlayComponent },
   { path: 'letsPlay', component: LetsPlayComponent },
-  {path: 'partie', component: PartieComponent},
-  {path:'choixCategorie',component: ChoixCategorieComponent}
+  { path: 'partie', component: PartieComponent},
+  { path:'choixCategorie',component: ChoixCategorieComponent}
 ];
 
 @NgModule({

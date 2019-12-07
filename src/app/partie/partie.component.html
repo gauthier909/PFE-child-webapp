@@ -1,4 +1,4 @@
-<h1>{{choixCat}}</h1>
+<h1>Tu as choisi la catégorie : {{choixCat}} ! </h1>
 <!---- <div *ngFor="let filtre of ordreFiltre" class="mainFrame"> 
     <h2>{{filtre}}</h2>
 <img [src]="images[index].nom">
@@ -13,20 +13,20 @@
 </div>
 -->
 <div *ngIf="isOnAime">
-    <h2>J'aime</h2>
+    <h2>Est-ce que j'aime..</h2>
     <img [src]="images[indexImage].nom">
-    <img src="/images/deplacements/bus.jpg">
+    <img src="../../assets/[indexImage].nom">
 </div>
 <div *ngIf="isOnAide">
     <!-- <app-filtre-aide ></app-filtre-aide> -->
-    <h2>Aide</h2>
+    <h2>Est-ce que j'ai besoin d'aide..</h2>
     <img [src]="images[indexImage].nom">
-    <img src="/images/deplacements/bus.jpg">
+    <img src="../../assets/deplacements/bus.jpg">
 </div>
 <div *ngIf="isOnContent">
-    <h2>Content</h2>
+    <h2>Est-ce que je suis content..</h2>
     <img [src]="images[indexImage].nom">
-    <img src="/images/deplacements/bus.jpg">
+    <img src="../../assets/deplacements/bus.jpg">
 </div>
 <div class="reponse">
     <button class="btn btn-primary" (click)="onOui()">Oui</button>
