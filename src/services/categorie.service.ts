@@ -10,8 +10,14 @@ import {Categorie } from '../app/classes/categorie';
 })
 export class CategorieService {
   private categorieUrl = 'http://localhost:8080/categories';  // URL to web api
+
+  private cheminCategorieUrl ='http://localhost:8080/categories/cheminImage';
   
   private mesCategories: Observable<string[]>;
+
+  private cheminImageCategorie:Observable<string[]>;
+
+
 
 
   constructor(private http: HttpClient) { }
@@ -29,6 +35,19 @@ export class CategorieService {
       catchError(this.handleError<string[]>('getCategorie', []))
     );
     return this.mesCategories;
+  }
+
+  
+
+  //retourne le premier chemin d'une categorie de la collection image
+  getCheminImageByCategorie(categorie:string):Observable<string[]>{
+    const url = `${this.cheminCategorieUrl}/${categorie}`
+    this.cheminImageCategorie = this.http.get<string[]>(url)
+    .pipe(
+      tap(_ => console.log('fetched chemin categorie')),
+      catchError(this.handleError<string[]>('getCheminCategorie', []))
+    );
+    return this.cheminImageCategorie;
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

@@ -11,7 +11,7 @@ import {Filtre} from './filtre'
 })
 export class PartieComponent implements OnInit {
 
-  @Input() imgPath:string = "/images/deplacements/";
+  @Input() imgPath:string = "../../assets/deplacements/";
   imgFileName:string = "bus.jpg";
 
   public isOnAime=false; //Pour permettre l'affichage du bon filtre au bon moment

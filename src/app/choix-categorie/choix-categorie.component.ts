@@ -11,6 +11,7 @@ import { CategorieService } from 'src/services/categorie.service';
 export class ChoixCategorieComponent implements OnInit {
 
   categories : string[];
+  cheminImages:string[];
   public choixCat:string;
 
   constructor(private gameService:GameService,private router: Router,
@@ -18,7 +19,11 @@ export class ChoixCategorieComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
-    this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat)
+    //console.log(this.categories)
+    this.getCheminImage();
+    this.gameService.currentMessage.subscribe(choixCat =>
+       this.choixCat = choixCat
+      )
   }
 
   clickChoixCat(value:string){
@@ -28,8 +33,27 @@ export class ChoixCategorieComponent implements OnInit {
     this.router.navigateByUrl('/partie');
   }
   getCategories() : void {
-    this.categorieService.getCategories().subscribe(categories => this.categories = categories)
-    console.log(this.categories)
+    this.categorieService.getCategories().subscribe(categories =>{
+      this.categories = categories;
+      console.log(this.categories)
+      this.categories.forEach(cat => {
+       // this.categorieService.getCheminImageByCategorie(cat).subscribe(chemin =>{
+        this.categorieService.getCheminImageByCategorie(cat.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")).subscribe(chemin =>{
+          this.cheminImages=chemin;
+          console.log(this.cheminImages)
+        });
+    });
+
+    } )
+    
+   }
+
+   //retourne un tableau du chemin de la première image de chaque categorie
+   getCheminImage():void{
+     //console.log(this.categories)
+     /* this.categories.forEach(cat => {
+        console.log(this.categorieService.getCheminImageByCategorie(cat));
+    });*/
    }
 
 }
