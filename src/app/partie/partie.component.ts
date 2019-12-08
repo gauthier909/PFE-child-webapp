@@ -1,8 +1,8 @@
 import { Component, OnInit , Input } from '@angular/core';
 import { GameService } from "../../services/game.service";
+import {Filtre} from './filtre'
 
-const ROUTE = 'http://localhost:8080/partie';
-const ROUTE_IMAGES = 'http://localhost:8080/partie/images';
+
 
 @Component({
   selector: 'app-partie',
@@ -17,7 +17,6 @@ export class PartieComponent implements OnInit {
   public isOnAime=false; //Pour permettre l'affichage du bon filtre au bon moment
   public isOnAide=false;
   public isOnContent=false;
-  public data;
   public choixCat:string;
   public tabImages; // tableau contenant toutes les images de la DB
   public ordreFiltre; //tableau contenant l'odre dans lequel les filtres apparaissent
@@ -63,21 +62,18 @@ export class PartieComponent implements OnInit {
     this.filtre = this.ordreFiltre[this.indexFiltre];
     this.switchFiltre();
 
-    
-    fetch(ROUTE)
-        .then(response => response.clone().json())
-        .then(data => {
-          console.log("Recieved data from Express API :", data)
-          this.data = data
-        })
-        .catch(err => {
-          console.error("Error :", err)
-        })
   }
 
   onOui(){
-    console.log(this.indexImage)
+    console.log(this.images)
     console.log(this.images.length);
+    console.log(this.images[this.indexImage].nom)
+    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let choix:Object={
+      nomImage:nomCurrentImage,
+      valeur:0
+    }
+    this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
     if(this.indexImage +1 >= this.images.length){
       this.indexFiltre++;
       this.switchFiltre();
@@ -91,6 +87,12 @@ export class PartieComponent implements OnInit {
   }
 
   onNon(){
+    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let choix:Object={
+      nomImage:nomCurrentImage,
+      valeur:1
+    }
+    this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
     if(this.indexImage + 1 >= this.images.length){
       this.indexFiltre++;
       this.switchFiltre();
@@ -103,6 +105,12 @@ export class PartieComponent implements OnInit {
   }
 
   onJsp(){
+    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let choix:Object={
+      nomImage:nomCurrentImage,
+      valeur:2
+    }
+    this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
     if(this.indexImage + 1 >= this.images.length){
       this.switchFiltre();
       this.indexFiltre++;
@@ -113,6 +121,15 @@ export class PartieComponent implements OnInit {
     }
     this.indexImage++;
   }
+
+  insertFiltre(commentaire: string,nom: string,choix: Object){
+    //console.log('insertion from component')
+    this.gameService.insertFiltre({commentaire,nom,choix} as Filtre).subscribe(filtre => {
+      console.log('insert filtre')
+    })
+  }
+
+
 
   switchFiltre(){
     this.indexImage = 0;
