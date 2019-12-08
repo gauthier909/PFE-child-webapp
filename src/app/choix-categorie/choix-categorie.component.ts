@@ -11,7 +11,7 @@ import { CategorieService } from 'src/services/categorie.service';
 export class ChoixCategorieComponent implements OnInit {
 
   categories : string[];
-  cheminImages:string[];
+  cheminImages:string[]=[''];
   public choixCat:string;
 
   constructor(private gameService:GameService,private router: Router,
@@ -36,12 +36,22 @@ export class ChoixCategorieComponent implements OnInit {
     this.categorieService.getCategories().subscribe(categories =>{
       this.categories = categories;
       console.log(this.categories)
+      this.categories.sort();
       this.categories.forEach(cat => {
+        console.log('categorie:'+cat)
        // this.categorieService.getCheminImageByCategorie(cat).subscribe(chemin =>{
         this.categorieService.getCheminImageByCategorie(cat.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")).subscribe(chemin =>{
-          this.cheminImages=chemin;
-          console.log(this.cheminImages)
+          let vraiChemin:string='';
+          for(let i = 0 ; i<chemin.length;i++){
+            vraiChemin+=chemin[i];
+          }
+          console.log('vrai chemin:'+vraiChemin)
+          this.cheminImages.push(vraiChemin);
+          this.cheminImages.sort();
+          //console.log(this.cheminImages)
         });
+        this.cheminImages.shift();
+        console.log(this.cheminImages)
     });
 
     } )
