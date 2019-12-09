@@ -30,7 +30,7 @@ export class ChoixCategorieComponent implements OnInit {
     console.log(value);
     this.choixCat = value;
     this.gameService.updateChoix(this.choixCat);
-    this.router.navigateByUrl('/partie');
+    this.router.navigateByUrl('/choixHabitude');
   }
   getCategories() : void {
     this.categorieService.getCategories().subscribe(categories =>{

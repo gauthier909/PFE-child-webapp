@@ -10,13 +10,13 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class GameService {
   private partieUrl = 'http://localhost:8080/partie';
   private filtreUrl = 'http://localhost:8080/partie/filtre';
-  private imageUrl = 'http://localhost:8080/partie/images';
+  private imageCategorieUrl = 'http://localhost:8080/partie/imagesCategorie';
 
-  private choixCat = new BehaviorSubject<string>("message");
+  private choixCat = new BehaviorSubject<string>("");
   currentMessage = this.choixCat.asObservable();
 
   ordreFiltreDefault:any=['J\'aime','Avec aide','Content'];
-
+  public tabImageCategorie:Observable<string[]>;
 
   constructor(private http:HttpClient) { }
   
@@ -36,10 +36,15 @@ export class GameService {
     );
   }
 
-  onLetsPlay(){
-    //console.log('clicked');
-    return this.http.get('https://reqres.in/api/users');
-  }
+ getAllImagesByCategorie(categorie:string){
+  const url = `${this.imageCategorieUrl}/${categorie}`
+    this.tabImageCategorie = this.http.get<string[]>(url)
+    .pipe(
+      tap(_ => console.log('fetched chemin image categorie')),
+      catchError(this.handleError<string[]>('getCheminImageCategorie', []))
+    );
+    return this.tabImageCategorie;
+ }
 
 
   private handleError<T> (operation = 'operation', result?: T) {
