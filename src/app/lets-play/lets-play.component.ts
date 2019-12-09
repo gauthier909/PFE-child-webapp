@@ -18,15 +18,4 @@ export class LetsPlayComponent implements OnInit {
 
   }
   
-  
-  onLetsPlay(){
-    this.data.onLetsPlay().subscribe(data => {
-      this.users = data;
-      //console.log(this.users);
-    });
-
-    
-
-  }
-
 }

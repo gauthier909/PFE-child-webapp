@@ -11,6 +11,7 @@ import { ChoixCategorieComponent } from './choix-categorie/choix-categorie.compo
 import { FiltreAimeComponent } from './filtre-aime/filtre-aime.component';
 import { FiltreAideComponent } from './filtre-aide/filtre-aide.component';
 import { FiltreContentComponent } from './filtre-content/filtre-content.component';
+import { ChoixHabitudeComponent } from './choix-habitude/choix-habitude.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FiltreContentComponent } from './filtre-content/filtre-content.componen
     ChoixCategorieComponent,
     FiltreAimeComponent,
     FiltreAideComponent,
-    FiltreContentComponent
+    FiltreContentComponent,
+    ChoixHabitudeComponent
   ],
   imports: [
     BrowserModule,
