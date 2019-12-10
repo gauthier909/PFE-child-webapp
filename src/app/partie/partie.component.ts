@@ -16,35 +16,13 @@ export class PartieComponent implements OnInit {
   public choixCat:string;
   public ordreFiltre; //tableau contenant l'odre dans lequel les filtres apparaissent
   public filtre; //Le filtre actuel
-  public tabImageJeu; // le tableau contenant le chemin des tout les images qui sont une habitude dans sa vie
+  public tabImageJeu:Array<string> = []; // le tableau contenant le chemin des tout les images qui sont une habitude dans sa vie
   //public images:{id:number,nom:string,categorie:string}[];
   public indexImage = 0;
   public indexFiltre=0;
 
   constructor(private gameService:GameService, private router:Router) { 
     this.ordreFiltre = gameService.ordreFiltreDefault;
-  /*  this.images = [
-      {
-        "id": 0,
-        "nom": "https://placehold.it/350x340",
-        "categorie": "sport"
-      },
-      {
-        "id": 1,
-        "nom": "https://placehold.it/350x341",
-        "categorie": "sport"
-      },
-      {
-        "id": 2,
-        "nom": "https://placehold.it/350x342",
-        "categorie": "sport"
-      },
-      {
-        "id": 3,
-        "nom": "https://placehold.it/350x343",
-        "categorie":"sport"
-      }
-    ];*/
   }
 
   ngOnInit() {
@@ -76,7 +54,10 @@ export class PartieComponent implements OnInit {
       }
       
     }
-    this.indexImage++;
+    else{
+      this.indexImage++;
+    }
+    
   }
 
   onNon(){
@@ -95,7 +76,10 @@ export class PartieComponent implements OnInit {
         this.router.navigateByUrl('/finPartie');
       }
     }
-    this.indexImage++;
+    else{
+      this.indexImage++;
+    }
+    
   }
 
   onJsp(){
@@ -114,7 +98,10 @@ export class PartieComponent implements OnInit {
         this.router.navigateByUrl('/finPartie');
       }
     }
-    this.indexImage++;
+    else{
+      this.indexImage++;
+    }
+    
   }
 
   insertFiltre(commentaire: string,nom: string,choix: Object){
@@ -127,26 +114,26 @@ export class PartieComponent implements OnInit {
 
 
   switchFiltre(){
+    //console.log(this.tabImageJeu[0])
+    console.log('switch')
     this.indexImage = 0;
+    console.log(this.tabImageJeu)
     if(this.ordreFiltre[this.indexFiltre] === 'J\'aime'){
       this.isOnAide=false;
       this.isOnContent = false;
       this.isOnAime= true;
-      console.log('switch')
     }
 
     if(this.ordreFiltre[this.indexFiltre] === 'Avec aide'){
       this.isOnAime = false;
       this.isOnContent = false;
       this.isOnAide= true;
-      console.log('switch')
     }
 
     if(this.ordreFiltre[this.indexFiltre] === 'Content'){
       this.isOnAime = false;
       this.isOnAide = false;
       this.isOnContent= true;
-      console.log('switch')
     }
   }
 
