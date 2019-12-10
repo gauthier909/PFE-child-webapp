@@ -2,6 +2,7 @@ import { Component, OnInit , Input } from '@angular/core';
 import { GameService } from "../../services/game.service";
 import {Filtre} from './filtre'
 import {Router} from '@angular/router';
+import {SocketService} from '../../services/socket.service'
 
 @Component({
   selector: 'app-partie',
@@ -21,7 +22,7 @@ export class PartieComponent implements OnInit {
   public indexImage = 0;
   public indexFiltre=0;
 
-  constructor(private gameService:GameService, private router:Router) { 
+  constructor(private gameService:GameService, private router:Router,private socket:SocketService) { 
     this.ordreFiltre = gameService.ordreFiltreDefault;
   }
 
