@@ -1,0 +1,14 @@
+<h2>Tu as choisi la catégorie {{choixCat}} !</h2>
+<h3>Quelles habitudes sont présentes dans ta vie quotidienne ?</h3>
+<!--<ul *ngFor="let image of tabImagesCategorie"> 
+<li>
+    <img [src]="image">
+</li>
+</ul>-->
+<img [src]="tabImagesCategorie[indexImage]">
+<div class="reponse">
+    <button class="btn btn-primary" (click)="onOui()">Oui</button>
+    <button class="btn btn-primary" (click)="onNon()">Non</button>
+    <button class="btn btn-primary" (click)="onJeVoudrais()">Je voudrais</button>
+</div> 
+<!--<button routerLink="/partie"> Jouer</button> -->
