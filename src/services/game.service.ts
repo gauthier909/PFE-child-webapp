@@ -17,6 +17,7 @@ export class GameService {
 
   ordreFiltreDefault:any=['J\'aime','Avec aide','Content'];
   public tabImageCategorie:Observable<string[]>;
+  public tabImageHabitude:string[];
 
   constructor(private http:HttpClient) { }
   

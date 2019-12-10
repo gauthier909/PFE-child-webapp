@@ -14,18 +14,18 @@
 -->
 <div *ngIf="isOnAime">
     <h2>Est-ce que j'aime..</h2>
-    <img [src]="images[indexImage].nom">
+    <img [src]="tabImageJeu[indexImage]">
    
 </div>
 <div *ngIf="isOnAide">
     <!-- <app-filtre-aide ></app-filtre-aide> -->
     <h2>Est-ce que j'ai besoin d'aide..</h2>
-    <img [src]="images[indexImage].nom">
+    <img [src]="tabImageJeu[indexImage]">
     
 </div>
 <div *ngIf="isOnContent">
     <h2>Est-ce que je suis content..</h2>
-    <img [src]="images[indexImage].nom">
+    <img [src]="tabImageJeu[indexImage]">
     
 </div>
 <div class="reponse">

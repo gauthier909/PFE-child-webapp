@@ -1,8 +1,7 @@
 import { Component, OnInit , Input } from '@angular/core';
 import { GameService } from "../../services/game.service";
 import {Filtre} from './filtre'
-
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-partie',
@@ -11,24 +10,20 @@ import {Filtre} from './filtre'
 })
 export class PartieComponent implements OnInit {
 
-  @Input() imgPath:string = "../../assets/deplacements/";
-  imgFileName:string = "bus.jpg";
-
   public isOnAime=false; //Pour permettre l'affichage du bon filtre au bon moment
   public isOnAide=false;
   public isOnContent=false;
   public choixCat:string;
-  public tabImages; // tableau contenant toutes les images de la DB
   public ordreFiltre; //tableau contenant l'odre dans lequel les filtres apparaissent
   public filtre; //Le filtre actuel
-
-  public images:{id:number,nom:string,categorie:string}[];
+  public tabImageJeu; // le tableau contenant le chemin des tout les images qui sont une habitude dans sa vie
+  //public images:{id:number,nom:string,categorie:string}[];
   public indexImage = 0;
   public indexFiltre=0;
 
-  constructor(private gameService:GameService) { 
+  constructor(private gameService:GameService, private router:Router) { 
     this.ordreFiltre = gameService.ordreFiltreDefault;
-    this.images = [
+  /*  this.images = [
       {
         "id": 0,
         "nom": "https://placehold.it/350x340",
@@ -49,7 +44,7 @@ export class PartieComponent implements OnInit {
         "nom": "https://placehold.it/350x343",
         "categorie":"sport"
       }
-    ];
+    ];*/
   }
 
   ngOnInit() {
@@ -58,28 +53,26 @@ export class PartieComponent implements OnInit {
     //Observer
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
     this.ordreFiltre = this.gameService.ordreFiltreDefault;
-
+    this.tabImageJeu = this.gameService.tabImageHabitude;
     this.filtre = this.ordreFiltre[this.indexFiltre];
     this.switchFiltre();
 
   }
 
   onOui(){
-    console.log(this.images)
-    console.log(this.images.length);
-    console.log(this.images[this.indexImage].nom)
-    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let nomCurrentImage:string=this.tabImageJeu[this.indexImage]
     let choix:Object={
       nomImage:nomCurrentImage,
       valeur:0
     }
     this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
-    if(this.indexImage +1 >= this.images.length){
+    if(this.indexImage +1 >= this.tabImageJeu.length){
       this.indexFiltre++;
       this.switchFiltre();
       if(this.indexFiltre >=this.ordreFiltre.length){
         //fin partie
         console.log("fin partie")
+        this.router.navigateByUrl('/finPartie');
       }
       
     }
@@ -87,36 +80,38 @@ export class PartieComponent implements OnInit {
   }
 
   onNon(){
-    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let nomCurrentImage:string=this.tabImageJeu[this.indexImage]
     let choix:Object={
       nomImage:nomCurrentImage,
       valeur:1
     }
     this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
-    if(this.indexImage + 1 >= this.images.length){
+    if(this.indexImage + 1 >= this.tabImageJeu.length){
       this.indexFiltre++;
       this.switchFiltre();
       if(this.indexFiltre >=this.ordreFiltre.length){
         //fin partie
         console.log("fin partie")
+        this.router.navigateByUrl('/finPartie');
       }
     }
     this.indexImage++;
   }
 
   onJsp(){
-    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let nomCurrentImage:string=this.tabImageJeu[this.indexImage]
     let choix:Object={
       nomImage:nomCurrentImage,
       valeur:2
     }
     this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
-    if(this.indexImage + 1 >= this.images.length){
+    if(this.indexImage + 1 >= this.tabImageJeu.length){
       this.switchFiltre();
       this.indexFiltre++;
       if(this.indexFiltre >=this.ordreFiltre.length){
         //fin partie
         console.log("fin partie")
+        this.router.navigateByUrl('/finPartie');
       }
     }
     this.indexImage++;

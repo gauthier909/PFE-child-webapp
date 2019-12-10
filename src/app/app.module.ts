@@ -14,6 +14,7 @@ import { FiltreContentComponent } from './filtre-content/filtre-content.componen
 import { ChoixHabitudeComponent } from './choix-habitude/choix-habitude.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { FinPartieComponent } from './fin-partie/fin-partie.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { environment } from '../environments/environment';
     FiltreAimeComponent,
     FiltreAideComponent,
     FiltreContentComponent,
-    ChoixHabitudeComponent
+    ChoixHabitudeComponent,
+    FinPartieComponent
   ],
   imports: [
     BrowserModule,
