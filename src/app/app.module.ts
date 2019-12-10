@@ -12,6 +12,8 @@ import { FiltreAimeComponent } from './filtre-aime/filtre-aime.component';
 import { FiltreAideComponent } from './filtre-aide/filtre-aide.component';
 import { FiltreContentComponent } from './filtre-content/filtre-content.component';
 import { ChoixHabitudeComponent } from './choix-habitude/choix-habitude.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ChoixHabitudeComponent } from './choix-habitude/choix-habitude.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
