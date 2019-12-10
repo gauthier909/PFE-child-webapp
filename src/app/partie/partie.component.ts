@@ -15,23 +15,30 @@ export class PartieComponent implements OnInit {
   public isOnAide=false;
   public isOnContent=false;
   public choixCat:string;
-  public ordreFiltre; //tableau contenant l'odre dans lequel les filtres apparaissent
+  public ordreFiltre:Array<string> = []; //tableau contenant l'odre dans lequel les filtres apparaissent
   public filtre; //Le filtre actuel
   public tabImageJeu:Array<string> = []; // le tableau contenant le chemin des tout les images qui sont une habitude dans sa vie
-  //public images:{id:number,nom:string,categorie:string}[];
   public indexImage = 0;
   public indexFiltre=0;
 
   constructor(private gameService:GameService, private router:Router,private socket:SocketService) { 
-    this.ordreFiltre = gameService.ordreFiltreDefault;
+    //this.ordreFiltre = gameService.ordreFiltreDefault;
   }
 
   ngOnInit() {
-    //console.log(this.images);
-
-    //Observer
+    if(this.socket.message === undefined || this.socket.message.message[0] === undefined ||this.socket.message.message.length <= 0 ){
+      console.log('socket vide, lancer le tableau par defaut')
+      this.ordreFiltre = this.gameService.ordreFiltreDefault;
+    }
+    else{
+      console.log('Tableau filtre reçu !')
+      for(let i =0 ; i < this.socket.message.message.length;i++){
+        console.log(this.socket.message.message[i].filtrePositif)
+        this.ordreFiltre.push(this.socket.message.message[i].filtrePositif.trim())
+      }
+        console.log('tab:'+this.ordreFiltre)
+    }
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
-    this.ordreFiltre = this.gameService.ordreFiltreDefault;
     this.tabImageJeu = this.gameService.tabImageHabitude;
     this.filtre = this.ordreFiltre[this.indexFiltre];
     this.switchFiltre();
@@ -125,13 +132,13 @@ export class PartieComponent implements OnInit {
       this.isOnAime= true;
     }
 
-    if(this.ordreFiltre[this.indexFiltre] === 'Avec aide'){
+    if(this.ordreFiltre[this.indexFiltre] === 'Sans aide'){
       this.isOnAime = false;
       this.isOnContent = false;
       this.isOnAide= true;
     }
 
-    if(this.ordreFiltre[this.indexFiltre] === 'Content'){
+    if(this.ordreFiltre[this.indexFiltre] === 'Je suis content'){
       this.isOnAime = false;
       this.isOnAide = false;
       this.isOnContent= true;

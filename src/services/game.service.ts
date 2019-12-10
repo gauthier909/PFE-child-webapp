@@ -15,7 +15,7 @@ export class GameService {
   private choixCat = new BehaviorSubject<string>("");
   currentMessage = this.choixCat.asObservable();
 
-  ordreFiltreDefault:any=['J\'aime','Avec aide','Content'];
+  ordreFiltreDefault:any=['J\'aime','Sans aide','Je suis content'];
   public tabImageCategorie:Observable<string[]>;
   public tabImageHabitude:string[];
 
