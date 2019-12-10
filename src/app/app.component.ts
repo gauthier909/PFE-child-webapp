@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
-import { SocketService } from 'src/services/socket.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +11,12 @@ export class AppComponent implements OnInit {
   title = 'front-enfant';
 
   constructor(
-    private swUpdate:SwUpdate,
-    private socketService: SocketService
+    private swUpdate:SwUpdate
   ){}
 
   ngOnInit(){
-    this.socketService.socketInit()
     this.reloadCache();
+
   }
 
   //update l'appli des qu'il y a un changment (pwa)
