@@ -1,5 +1,7 @@
 <h2>Choisi la catégorie dont tu voudrais parler ! :)</h2>
+<div class="listCat">
 <ul *ngFor="let cat of categories;let i = index" [attr.data-index]="i"> 
-    <li><button (click)="clickChoixCat(cat)">{{cat}}</button></li>
-    <img [src]="cheminImages[i]">
+    <li><button class="btn btn-info" (click)="clickChoixCat(cat)">{{cat}}</button></li>
+    <img [src]="cheminImages[i]" (click)="clickChoixCat(cat)">
 </ul>
+</div>

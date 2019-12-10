@@ -2,3 +2,9 @@ img{
     width: 200px;
 	height: 200px;
 }
+
+ul{
+      width: auto; 
+      display: inline-block;
+      list-style-type: none;
+}

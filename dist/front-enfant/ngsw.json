@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1576001806226,
+  "timestamp": 1576005023071,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.0e8471eefa7ce671986d.js",
-        "/main-es5.0e8471eefa7ce671986d.js",
+        "/main-es2015.53726800346f36961fb1.js",
+        "/main-es5.53726800346f36961fb1.js",
         "/manifest.webmanifest",
         "/polyfills-es2015.2987770fde9daa1d8a2e.js",
         "/polyfills-es5.6696c533341b95a3d617.js",
@@ -31,6 +31,7 @@
         "/assets/deplacement/traverser.jpg",
         "/assets/deplacement/velo.jpg",
         "/assets/deplacement/voiture.jpg",
+        "/assets/felicitation.jpg",
         "/assets/habitation/allumerLumiere.jpg",
         "/assets/habitation/balayer.jpg",
         "/assets/habitation/machineALaver.jpg",
@@ -89,6 +90,7 @@
     "/assets/deplacement/traverser.jpg": "ead6e3c57bfd6af3c8dcbbb853976dc618cbdeb1",
     "/assets/deplacement/velo.jpg": "8f418c7a098c713d54012e8abf6a9baf384788e3",
     "/assets/deplacement/voiture.jpg": "e59f0e0ebc099b22c18cbba66b7961d832b3dc74",
+    "/assets/felicitation.jpg": "5e293c4ded129b3b55e8781bd6e55201e5b45e52",
     "/assets/habitation/allumerLumiere.jpg": "e38651b26d9be2bfda8af57d25d8024ac5385d4d",
     "/assets/habitation/balayer.jpg": "702075c5baf49de25fd78f443db6195e5a495e55",
     "/assets/habitation/machineALaver.jpg": "5fe292f4e22406b1b8ca81da8f9fcdf5ae4d01fd",
@@ -137,9 +139,9 @@
     "/assets/soins/toilettes.jpg": "3b5a3b2ed79d37811fa3e1264881b7d1423e4098",
     "/assets/soins/urgence.jpg": "9d5fd86154b9bfb65c885c54eb4c1e670e4eaecc",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "c68a8b21e8b8cc0d4125938d2fbc208a182180be",
-    "/main-es2015.0e8471eefa7ce671986d.js": "f765d9913e3ec67d44402dcfd1a9ce6d2d717d44",
-    "/main-es5.0e8471eefa7ce671986d.js": "aaafab30dad810be14d1d782f04576f263df70c9",
+    "/index.html": "29ac06192b325436fe8c2b8d818dd11321c8551f",
+    "/main-es2015.53726800346f36961fb1.js": "18c5f6b9c56ea82ea2b2891370e7708ce937600d",
+    "/main-es5.53726800346f36961fb1.js": "d832771fc63c96f97d46b69f109a6840d40072c6",
     "/manifest.webmanifest": "2595d818ba90bf8a589b84abf7f64a5c925a79d2",
     "/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
     "/polyfills-es5.6696c533341b95a3d617.js": "9ceb13edd4b10268f661814868dadb2b284f9745",
