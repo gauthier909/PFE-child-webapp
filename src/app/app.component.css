@@ -4,6 +4,8 @@ body{
     margin: auto;
     width: auto;
     height: 2000px;
+    font-family: "Comic Sans MS";
+    text-align: center;
 }
 
 a{

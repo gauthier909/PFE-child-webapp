@@ -1,8 +1,8 @@
 import { Component, OnInit , Input } from '@angular/core';
 import { GameService } from "../../services/game.service";
 import {Filtre} from './filtre'
-
-
+import {Router} from '@angular/router';
+import {SocketService} from '../../services/socket.service'
 
 @Component({
   selector: 'app-partie',
@@ -11,115 +11,105 @@ import {Filtre} from './filtre'
 })
 export class PartieComponent implements OnInit {
 
-  @Input() imgPath:string = "../../assets/deplacements/";
-  imgFileName:string = "bus.jpg";
-
   public isOnAime=false; //Pour permettre l'affichage du bon filtre au bon moment
   public isOnAide=false;
   public isOnContent=false;
   public choixCat:string;
-  public tabImages; // tableau contenant toutes les images de la DB
-  public ordreFiltre; //tableau contenant l'odre dans lequel les filtres apparaissent
+  public ordreFiltre:Array<string> = []; //tableau contenant l'odre dans lequel les filtres apparaissent
   public filtre; //Le filtre actuel
-
-  public images:{id:number,nom:string,categorie:string}[];
+  public tabImageJeu:Array<string> = []; // le tableau contenant le chemin des tout les images qui sont une habitude dans sa vie
   public indexImage = 0;
   public indexFiltre=0;
 
-  constructor(private gameService:GameService) { 
-    this.ordreFiltre = gameService.ordreFiltreDefault;
-    this.images = [
-      {
-        "id": 0,
-        "nom": "https://placehold.it/350x340",
-        "categorie": "sport"
-      },
-      {
-        "id": 1,
-        "nom": "https://placehold.it/350x341",
-        "categorie": "sport"
-      },
-      {
-        "id": 2,
-        "nom": "https://placehold.it/350x342",
-        "categorie": "sport"
-      },
-      {
-        "id": 3,
-        "nom": "https://placehold.it/350x343",
-        "categorie":"sport"
-      }
-    ];
+  constructor(private gameService:GameService, private router:Router,private socket:SocketService) { 
+    //this.ordreFiltre = gameService.ordreFiltreDefault;
   }
 
   ngOnInit() {
-    //console.log(this.images);
-
-    //Observer
+    if(this.socket.message === undefined || this.socket.message.message[0] === undefined ||this.socket.message.message.length <= 0 ){
+      console.log('socket vide, lancer le tableau par defaut')
+      this.ordreFiltre = this.gameService.ordreFiltreDefault;
+    }
+    else{
+      console.log('Tableau filtre reçu !')
+      for(let i =0 ; i < this.socket.message.message.length;i++){
+        console.log(this.socket.message.message[i].filtrePositif)
+        this.ordreFiltre.push(this.socket.message.message[i].filtrePositif.trim())
+      }
+        console.log('tab:'+this.ordreFiltre)
+    }
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
-    this.ordreFiltre = this.gameService.ordreFiltreDefault;
-
+    this.tabImageJeu = this.gameService.tabImageHabitude;
     this.filtre = this.ordreFiltre[this.indexFiltre];
     this.switchFiltre();
 
   }
 
   onOui(){
-    console.log(this.images)
-    console.log(this.images.length);
-    console.log(this.images[this.indexImage].nom)
-    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let nomCurrentImage:string=this.tabImageJeu[this.indexImage]
     let choix:Object={
       nomImage:nomCurrentImage,
       valeur:0
     }
     this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
-    if(this.indexImage +1 >= this.images.length){
+    if(this.indexImage +1 >= this.tabImageJeu.length){
       this.indexFiltre++;
       this.switchFiltre();
       if(this.indexFiltre >=this.ordreFiltre.length){
         //fin partie
         console.log("fin partie")
+        this.router.navigateByUrl('/finPartie');
       }
       
     }
-    this.indexImage++;
+    else{
+      this.indexImage++;
+    }
+    
   }
 
   onNon(){
-    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let nomCurrentImage:string=this.tabImageJeu[this.indexImage]
     let choix:Object={
       nomImage:nomCurrentImage,
       valeur:1
     }
     this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
-    if(this.indexImage + 1 >= this.images.length){
+    if(this.indexImage + 1 >= this.tabImageJeu.length){
       this.indexFiltre++;
       this.switchFiltre();
       if(this.indexFiltre >=this.ordreFiltre.length){
         //fin partie
         console.log("fin partie")
+        this.router.navigateByUrl('/finPartie');
       }
     }
-    this.indexImage++;
+    else{
+      this.indexImage++;
+    }
+    
   }
 
   onJsp(){
-    let nomCurrentImage:string=this.images[this.indexImage].nom
+    let nomCurrentImage:string=this.tabImageJeu[this.indexImage]
     let choix:Object={
       nomImage:nomCurrentImage,
       valeur:2
     }
     this.insertFiltre("",this.ordreFiltre[this.indexFiltre],choix)
-    if(this.indexImage + 1 >= this.images.length){
+    if(this.indexImage + 1 >= this.tabImageJeu.length){
       this.switchFiltre();
       this.indexFiltre++;
       if(this.indexFiltre >=this.ordreFiltre.length){
         //fin partie
         console.log("fin partie")
+        this.router.navigateByUrl('/finPartie');
       }
     }
-    this.indexImage++;
+    else{
+      this.indexImage++;
+    }
+    
   }
 
   insertFiltre(commentaire: string,nom: string,choix: Object){
@@ -132,26 +122,26 @@ export class PartieComponent implements OnInit {
 
 
   switchFiltre(){
+    //console.log(this.tabImageJeu[0])
+    console.log('switch')
     this.indexImage = 0;
+    console.log(this.tabImageJeu)
     if(this.ordreFiltre[this.indexFiltre] === 'J\'aime'){
       this.isOnAide=false;
       this.isOnContent = false;
       this.isOnAime= true;
-      console.log('switch')
     }
 
-    if(this.ordreFiltre[this.indexFiltre] === 'Avec aide'){
+    if(this.ordreFiltre[this.indexFiltre] === 'Sans aide'){
       this.isOnAime = false;
       this.isOnContent = false;
       this.isOnAide= true;
-      console.log('switch')
     }
 
-    if(this.ordreFiltre[this.indexFiltre] === 'Content'){
+    if(this.ordreFiltre[this.indexFiltre] === 'Je suis content'){
       this.isOnAime = false;
       this.isOnAide = false;
       this.isOnContent= true;
-      console.log('switch')
     }
   }
 
