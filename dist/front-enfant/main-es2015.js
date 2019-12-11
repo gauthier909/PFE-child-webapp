@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<button routerLink=\"/choixCategorie\" class=\"btn-link\">\r\n  Viens jouer !\r\n</button>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<button routerLink=\"/choixCategorie\" class=\"btn-link btn btn-block\">\r\n  <ngb-carousel *ngIf=\"images\" interval=\"1500\" class=\"rounded-circle img-fluid\">\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/responsabilites/acheter%20.jpg\" alt=\"Random first slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>viens Jouer</h3>\r\n\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/deplacement/bus.jpg\" alt=\"Random second slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/loisirs/television.jpg\" alt=\"Random third slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/nutrition/dresserlatable.jpg\" alt=\"Random third slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n  </ngb-carousel>\r\n</button>\r\n\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -482,6 +482,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm2015/service-worker.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _fin_partie_fin_partie_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./fin-partie/fin-partie.component */ "./src/app/fin-partie/fin-partie.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+
 
 
 
@@ -511,6 +513,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_14__["NgbModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
             _angular_service_worker__WEBPACK_IMPORTED_MODULE_11__["ServiceWorkerModule"].register('ngsw-worker.js', { enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_12__["environment"].production })
@@ -833,7 +836,7 @@ FinPartieComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\nbutton {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translateX(-50%) translateY(-50%);\r\n    display:block;\r\n    height: 300px;\r\n    width: 300px;\r\n    border-radius: 50%;\r\n    background-color: aquamarine;\r\n    border: 1px solid blue;\r\n    font-family: \"Comic Sans MS\";\r\n    font-size: 250%;\r\n    color: #0d47a1;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGV0cy1wbGF5L2xldHMtcGxheS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixRQUFRO0lBQ1IsU0FBUztJQUdULDRDQUE0QztJQUM1QyxhQUFhO0lBQ2IsYUFBYTtJQUNiLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsNEJBQTRCO0lBQzVCLHNCQUFzQjtJQUN0Qiw0QkFBNEI7SUFDNUIsZUFBZTtJQUNmLGNBQWM7RUFDaEIiLCJmaWxlIjoic3JjL2FwcC9sZXRzLXBsYXkvbGV0cy1wbGF5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuYnV0dG9uIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogNTAlO1xyXG4gICAgbGVmdDogNTAlO1xyXG4gICAgLW1vei10cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSkgdHJhbnNsYXRlWSgtNTAlKTtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpIHRyYW5zbGF0ZVkoLTUwJSk7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSkgdHJhbnNsYXRlWSgtNTAlKTtcclxuICAgIGRpc3BsYXk6YmxvY2s7XHJcbiAgICBoZWlnaHQ6IDMwMHB4O1xyXG4gICAgd2lkdGg6IDMwMHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogYXF1YW1hcmluZTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsdWU7XHJcbiAgICBmb250LWZhbWlseTogXCJDb21pYyBTYW5zIE1TXCI7XHJcbiAgICBmb250LXNpemU6IDI1MCU7XHJcbiAgICBjb2xvcjogIzBkNDdhMTtcclxuICB9XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\nbutton {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translateX(-50%) translateY(-50%);\r\n    display:block;\r\n    height: 300px;\r\n    width: 300px;\r\n    border-radius: 50%;\r\n    background-color: aquamarine;\r\n    border: 1px solid blue;\r\n    font-family: \"Comic Sans MS\";\r\n    font-size: 250%;\r\n    color: #0d47a1;\r\n  }\r\nh3 {\r\n  color: greenyellow;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGV0cy1wbGF5L2xldHMtcGxheS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixRQUFRO0lBQ1IsU0FBUztJQUdULDRDQUE0QztJQUM1QyxhQUFhO0lBQ2IsYUFBYTtJQUNiLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsNEJBQTRCO0lBQzVCLHNCQUFzQjtJQUN0Qiw0QkFBNEI7SUFDNUIsZUFBZTtJQUNmLGNBQWM7RUFDaEI7QUFDRjtFQUNFLGtCQUFrQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2xldHMtcGxheS9sZXRzLXBsYXkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG5idXR0b24ge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICAtbW96LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKSB0cmFuc2xhdGVZKC01MCUpO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSkgdHJhbnNsYXRlWSgtNTAlKTtcclxuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKSB0cmFuc2xhdGVZKC01MCUpO1xyXG4gICAgZGlzcGxheTpibG9jaztcclxuICAgIGhlaWdodDogMzAwcHg7XHJcbiAgICB3aWR0aDogMzAwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhbWFyaW5lO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgYmx1ZTtcclxuICAgIGZvbnQtZmFtaWx5OiBcIkNvbWljIFNhbnMgTVNcIjtcclxuICAgIGZvbnQtc2l6ZTogMjUwJTtcclxuICAgIGNvbG9yOiAjMGQ0N2ExO1xyXG4gIH1cclxuaDMge1xyXG4gIGNvbG9yOiBncmVlbnllbGxvdztcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -856,6 +859,7 @@ __webpack_require__.r(__webpack_exports__);
 let LetsPlayComponent = class LetsPlayComponent {
     constructor(data) {
         this.data = data;
+        this.images = ['bus', 'marcher'].map((n) => `../../assets/deplacement/`);
     }
     ngOnInit() {
     }

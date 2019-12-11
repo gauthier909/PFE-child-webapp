@@ -11,6 +11,7 @@ import { ChoixHabitudeComponent } from './choix-habitude/choix-habitude.componen
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FinPartieComponent } from './fin-partie/fin-partie.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FinPartieComponent } from './fin-partie/fin-partie.component';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

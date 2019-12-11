@@ -16,17 +16,18 @@
 <div *ngIf="isOnAime" class="align-items-lg-center">
   <small class="text-muted"><h2>Est-ce que j'aime..</h2></small>
     <img [src]="tabImageJeu[indexImage]" class="rounded-circle img-fluid">
+  <p><ngb-progressbar type="success" [value]="[indexImage]*(100/[tabImageJeu.length])" [striped]="true"></ngb-progressbar></p>
 </div>
 <div *ngIf="isOnAide" class="align-items-lg-center">
     <!-- <app-filtre-aide ></app-filtre-aide> -->
   <small class="text-muted"><h2>Est-ce que j'ai besoin d'aide..</h2></small>
     <img [src]="tabImageJeu[indexImage]" class="rounded-circle img-fluid">
-
+  <p><ngb-progressbar type="success" [value]="[indexImage]*(100/[tabImageJeu.length])" [striped]="true"></ngb-progressbar></p>
 </div>
 <div *ngIf="isOnContent" class="align-items-lg-center">
   <small class="text-muted"><h2>Est-ce que je suis content..</h2></small>
     <img [src]="tabImageJeu[indexImage]" class="rounded-circle img-fluid">
-
+  <p><ngb-progressbar type="success" [value]="[indexImage]*(100/[tabImageJeu.length])" [striped]="true"></ngb-progressbar></p>
 </div>
 
 <div class="reponse" class="align-content-lg-center">
