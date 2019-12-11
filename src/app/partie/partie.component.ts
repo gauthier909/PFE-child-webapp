@@ -27,15 +27,16 @@ export class PartieComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.socket.message === undefined || this.socket.message.message[0] === undefined ||this.socket.message.message.length <= 0 ){
+    console.log(this.socket.message)
+    if(this.socket.message.filtres === undefined || this.socket.message.filtres[0] === undefined ||this.socket.message.filtres.length <= 0 ){
       console.log('socket vide, lancer le tableau par defaut')
       this.ordreFiltre = this.gameService.ordreFiltreDefault;
     }
     else{
       console.log('Tableau filtre reçu !')
-      for(let i =0 ; i < this.socket.message.message.length;i++){
-        console.log(this.socket.message.message[i].filtrePositif)
-        this.ordreFiltre.push(this.socket.message.message[i].filtrePositif.trim())
+      for(let i =0 ; i < this.socket.message.filtres.length;i++){
+        console.log(this.socket.message.filtres[i].filtrePositif)
+        this.ordreFiltre.push(this.socket.message.filtres[i].filtrePositif.trim())
       }
         console.log('tab:'+this.ordreFiltre)
     }

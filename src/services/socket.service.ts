@@ -11,10 +11,11 @@ const IO_ROOM = "testRoom"
 export class SocketService {
     private socket
     message: {
-        message: [{
+        filtres: [{
             filtrePositif: string,
             filtreNegatif: string
-        }], jeu_id: string
+        }]
+        jeu_id: string
     }
     constructor() { }
 
@@ -25,7 +26,7 @@ export class SocketService {
         this.socket = io(IO_ROUTE)
         this.socket.emit("joinRoom", IO_ROOM)
         this.socket.on("message", (message) => {
-            this.message = message
+            this.message = message.message
             console.log("[SOCKET] Message recu : ", this.message)
         })
     }
