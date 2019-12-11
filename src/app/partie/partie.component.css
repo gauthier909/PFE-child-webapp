@@ -9,7 +9,7 @@ margin: 10px;
     margin: -100px 0 0 -200px;
     top: 50%;
     left: 50%;
-    
+
 }*/
 
 .mainFrame{
@@ -19,4 +19,11 @@ margin: 10px;
 img{
     width: 400px;
 	height: 400px;
+  border:2px solid black;
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
+body{
+background-image: linear-gradient(to right top, #ff7d0e, #fc9900, #f5b300, #eacd00, #dce528);
 }

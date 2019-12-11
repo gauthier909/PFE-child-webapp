@@ -17,5 +17,5 @@ export class LetsPlayComponent implements OnInit {
   ngOnInit() {
 
   }
-  
+
 }
