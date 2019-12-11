@@ -13,7 +13,8 @@ export class SocketService {
     message:{message:[{
         filtrePositif:string,
         filtreNegatif:string
-    }]}
+    }],
+    jeu_id:string}
     constructor(){}
     
     /**

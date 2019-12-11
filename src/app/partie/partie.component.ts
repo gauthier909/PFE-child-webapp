@@ -27,7 +27,8 @@ export class PartieComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.socket.message === undefined || this.socket.message.message[0] === undefined ||this.socket.message.message.length <= 0 ){
+    console.log(this.socket.message.jeu_id)
+    if(this.socket.message.message === undefined || this.socket.message.message[0] === undefined ||this.socket.message.message.length <= 0 ){
       console.log('socket vide, lancer le tableau par defaut')
       this.ordreFiltre = this.gameService.ordreFiltreDefault;
     }
