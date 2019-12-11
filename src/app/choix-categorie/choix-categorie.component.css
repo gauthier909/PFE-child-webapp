@@ -4,7 +4,14 @@ img{
 }
 
 ul{
-      width: auto; 
+      width: auto;
       display: inline-block;
       list-style-type: none;
+}
+h2{
+  color: #f5f5f5; ;
+}
+
+h3{
+  color: #f5f5f5;
 }
