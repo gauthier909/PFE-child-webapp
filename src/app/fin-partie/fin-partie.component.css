@@ -10,5 +10,9 @@ h2 {
   img{
     width: 50%;
     margin: 20px;
+    border:2px solid black;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
   }
 

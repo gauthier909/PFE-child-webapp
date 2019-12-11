@@ -1,5 +1,5 @@
 <h1>Tu as choisi la catégorie : {{choixCat}} ! </h1>
-<!---- <div *ngFor="let filtre of ordreFiltre" class="mainFrame"> 
+<!---- <div *ngFor="let filtre of ordreFiltre" class="mainFrame">
     <h2>{{filtre}}</h2>
 <img [src]="images[index].nom">
 <img src="/images/deplacements/bus.jpg">
@@ -9,27 +9,28 @@
     <button class="btn btn-primary" (click)="onOui()">Oui</button>
     <button class="btn btn-primary" (click)="onNon()">Non</button>
     <button class="btn btn-primary" (click)="onJsp()">Je ne sais pas</button>
-</div> 
+</div>
 </div>
 -->
-<div *ngIf="isOnAime">
-    <h2>Est-ce que j'aime..</h2>
-    <img [src]="tabImageJeu[indexImage]">
-   
+
+<div *ngIf="isOnAime" class="align-items-lg-center">
+  <small class="text-muted"><h2>Est-ce que j'aime..</h2></small>
+    <img [src]="tabImageJeu[indexImage]" class="rounded-circle img-fluid">
 </div>
-<div *ngIf="isOnAide">
+<div *ngIf="isOnAide" class="align-items-lg-center">
     <!-- <app-filtre-aide ></app-filtre-aide> -->
-    <h2>Est-ce que j'ai besoin d'aide..</h2>
-    <img [src]="tabImageJeu[indexImage]">
-    
+  <small class="text-muted"><h2>Est-ce que j'ai besoin d'aide..</h2></small>
+    <img [src]="tabImageJeu[indexImage]" class="rounded-circle img-fluid">
+
 </div>
-<div *ngIf="isOnContent">
-    <h2>Est-ce que je suis content..</h2>
-    <img [src]="tabImageJeu[indexImage]">
-    
+<div *ngIf="isOnContent" class="align-items-lg-center">
+  <small class="text-muted"><h2>Est-ce que je suis content..</h2></small>
+    <img [src]="tabImageJeu[indexImage]" class="rounded-circle img-fluid">
+
 </div>
-<div class="reponse">
-    <button class="btn btn-primary" (click)="onOui()">Oui</button>
-    <button class="btn btn-primary" (click)="onNon()">Non</button>
-    <button class="btn btn-primary" (click)="onJsp()">Je ne sais pas</button>
-</div> 
+
+<div class="reponse" class="align-content-lg-center">
+   <button class="btn btn-success rounded-circle" (click)="onOui()">Oui</button>
+    <button class="btn btn-danger rounded-circle" (click)="onNon()">Non</button>
+   <button class="btn btn-warning rounded-circle" (click)="onJsp()">Je ne sais pas</button>
+</div>
