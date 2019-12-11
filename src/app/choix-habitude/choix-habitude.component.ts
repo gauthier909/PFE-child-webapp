@@ -15,7 +15,7 @@ export class ChoixHabitudeComponent implements OnInit {
   public choixCat:string;
   public tabImagesCategorie:string[];
   public tabImagesHabitudePresente:Array<string> = [];
-
+  public val=1;
   ngOnInit() {
     this.indexImage=0;
     this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
@@ -23,7 +23,7 @@ export class ChoixHabitudeComponent implements OnInit {
       this.tabImagesCategorie = images
       console.log(this.tabImagesCategorie)
     })
-    
+
   }
 
   onOui(){
@@ -34,7 +34,7 @@ export class ChoixHabitudeComponent implements OnInit {
       console.log("on passe à la partie")
       console.log(this.tabImagesHabitudePresente)
       this.router.navigateByUrl('/partie');
-      
+      this.val++;
     }
 
   }
@@ -47,7 +47,7 @@ export class ChoixHabitudeComponent implements OnInit {
       //console.log(this.gameService.tabImageHabitude)
       console.log("on passe à la partie")
       this.router.navigateByUrl('/partie');
-      
+      this.val++;
     }
   }
 
@@ -58,7 +58,7 @@ export class ChoixHabitudeComponent implements OnInit {
       console.log(this.tabImagesHabitudePresente)
       console.log("on passe à la partie")
       this.router.navigateByUrl('/partie');
-      
+      this.val++;
     }
   }
 
