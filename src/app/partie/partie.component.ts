@@ -27,13 +27,15 @@ export class PartieComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.socket.message)
-    if(this.socket.message.filtres === undefined || this.socket.message.filtres[0] === undefined ||this.socket.message.filtres.length <= 0 ){
+    //console.log(this.socket.message)
+    //console.log(this.socket.message.jeu_id)
+    if(this.socket.message === undefined||this.socket.message.filtres === undefined || this.socket.message.filtres[0] === undefined ||this.socket.message.filtres.length <= 0 ){
       console.log('socket vide, lancer le tableau par defaut')
       this.ordreFiltre = this.gameService.ordreFiltreDefault;
     }
     else{
-      console.log('Tableau filtre reçu !')
+      console.log('Tableau filtre reçu + id reçu!')
+      this.idJeu=this.socket.message.jeu_id
       for(let i =0 ; i < this.socket.message.filtres.length;i++){
         console.log(this.socket.message.filtres[i].filtrePositif)
         this.ordreFiltre.push(this.socket.message.filtres[i].filtrePositif.trim())
