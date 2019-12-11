@@ -11,7 +11,7 @@ export class ChoixHabitudeComponent implements OnInit {
 
   constructor(private gameService:GameService, private router:Router) { }
 
-  public indexImage=0;
+  public indexImage:number=0;
   public choixCat:string;
   public tabImagesCategorie:string[];
   public tabImagesHabitudePresente:Array<string> = [];
