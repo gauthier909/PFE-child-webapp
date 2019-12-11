@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client'
+import {Filtre} from '../app/partie/filtre'
 
 const IO_ROUTE = "http://localhost:8081"
 const IO_ROOM = "testRoom"
@@ -9,7 +10,10 @@ const IO_ROOM = "testRoom"
   })
 export class SocketService {
     private socket
-    message: any[] = []
+    message:{message:[{
+        filtrePositif:string,
+        filtreNegatif:string
+    }]}
     constructor(){}
     
     /**

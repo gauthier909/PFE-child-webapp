@@ -916,17 +916,26 @@ let PartieComponent = class PartieComponent {
         this.isOnAime = false; //Pour permettre l'affichage du bon filtre au bon moment
         this.isOnAide = false;
         this.isOnContent = false;
+        this.ordreFiltre = []; //tableau contenant l'odre dans lequel les filtres apparaissent
         this.tabImageJeu = []; // le tableau contenant le chemin des tout les images qui sont une habitude dans sa vie
-        //public images:{id:number,nom:string,categorie:string}[];
         this.indexImage = 0;
         this.indexFiltre = 0;
-        this.ordreFiltre = gameService.ordreFiltreDefault;
+        //this.ordreFiltre = gameService.ordreFiltreDefault;
     }
     ngOnInit() {
-        //console.log(this.images);
-        //Observer
+        if (this.socket.message === undefined || this.socket.message.message[0] === undefined || this.socket.message.message.length <= 0) {
+            console.log('socket vide, lancer le tableau par defaut');
+            this.ordreFiltre = this.gameService.ordreFiltreDefault;
+        }
+        else {
+            console.log('Tableau filtre reçu !');
+            for (let i = 0; i < this.socket.message.message.length; i++) {
+                console.log(this.socket.message.message[i].filtrePositif);
+                this.ordreFiltre.push(this.socket.message.message[i].filtrePositif.trim());
+            }
+            console.log('tab:' + this.ordreFiltre);
+        }
         this.gameService.currentMessage.subscribe(choixCat => this.choixCat = choixCat);
-        this.ordreFiltre = this.gameService.ordreFiltreDefault;
         this.tabImageJeu = this.gameService.tabImageHabitude;
         this.filtre = this.ordreFiltre[this.indexFiltre];
         this.switchFiltre();
@@ -1007,12 +1016,12 @@ let PartieComponent = class PartieComponent {
             this.isOnContent = false;
             this.isOnAime = true;
         }
-        if (this.ordreFiltre[this.indexFiltre] === 'Avec aide') {
+        if (this.ordreFiltre[this.indexFiltre] === 'Sans aide') {
             this.isOnAime = false;
             this.isOnContent = false;
             this.isOnAide = true;
         }
-        if (this.ordreFiltre[this.indexFiltre] === 'Content') {
+        if (this.ordreFiltre[this.indexFiltre] === 'Je suis content') {
             this.isOnAime = false;
             this.isOnAide = false;
             this.isOnContent = true;
@@ -1188,7 +1197,7 @@ let GameService = class GameService {
         this.imageCategorieUrl = 'http://localhost:8080/partie/imagesCategorie';
         this.choixCat = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]("");
         this.currentMessage = this.choixCat.asObservable();
-        this.ordreFiltreDefault = ['J\'aime', 'Avec aide', 'Content'];
+        this.ordreFiltreDefault = ['J\'aime', 'Sans aide', 'Je suis content'];
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
         };
@@ -1250,9 +1259,7 @@ __webpack_require__.r(__webpack_exports__);
 const IO_ROUTE = "http://localhost:8081";
 const IO_ROOM = "testRoom";
 let SocketService = class SocketService {
-    constructor() {
-        this.message = [];
-    }
+    constructor() { }
     /**
      * L'initialisation de la connection + ajout des listeners
      */
