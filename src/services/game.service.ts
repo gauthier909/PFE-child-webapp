@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable,of } from 'rxjs';
 import {Filtre} from '../app/partie/filtre';
 import { catchError, map, tap } from 'rxjs/operators';
+import {FiltreJeu} from '../app/partie/filtreJeu'
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,16 @@ export class GameService {
     return this.http.post<Filtre>(this.filtreUrl, filtre, this.httpOptions).pipe(
       tap((newFiltre: Filtre) => console.log(`added filtre w/ id=${newFiltre._id}`)),
       catchError(this.handleError<Filtre>('addFiltre'))
+    );
+  }
+
+  insertFiltreJeu(filtreJeu:Filtre,idJeu:string):Observable<any>{
+    const url = `${this.filtreUrl}/${idJeu}`;
+    console.log("On veut update",idJeu)
+
+    return this.http.put(url,filtreJeu, this.httpOptions).pipe(
+      tap(_ => console.log(`updated jeu with id id=${idJeu}`)),
+      catchError(this.handleError<any>('updateJeu'))
     );
   }
 

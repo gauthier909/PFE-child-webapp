@@ -3,7 +3,7 @@ import { GameService } from "../../services/game.service";
 import {Filtre} from './filtre'
 import {Router} from '@angular/router';
 import {SocketService} from '../../services/socket.service'
-
+import {FiltreJeu} from '../partie/filtreJeu'
 @Component({
   selector: 'app-partie',
   templateUrl: './partie.component.html',
@@ -20,6 +20,7 @@ export class PartieComponent implements OnInit {
   public tabImageJeu:Array<string> = []; // le tableau contenant le chemin des tout les images qui sont une habitude dans sa vie
   public indexImage = 0;
   public indexFiltre=0;
+  public idJeu:string="5df0bbb41c9d440000b55b75";
 
   constructor(private gameService:GameService, private router:Router,private socket:SocketService) { 
     //this.ordreFiltre = gameService.ordreFiltreDefault;
@@ -113,10 +114,11 @@ export class PartieComponent implements OnInit {
   }
 
   insertFiltre(commentaire: string,nom: string,choix: Object){
-    //console.log('insertion from component')
     this.gameService.insertFiltre({commentaire,nom,choix} as Filtre).subscribe(filtre => {
       console.log('insert filtre')
     })
+    this.gameService.insertFiltreJeu({commentaire,nom,choix} as Filtre,this.idJeu).subscribe(filtre =>
+      console.log('insert filtre dans jeu'));
   }
 
 
