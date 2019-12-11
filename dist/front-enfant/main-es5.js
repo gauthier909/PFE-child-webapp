@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<blockquote>\r\n<h2>Tu as choisi la catégorie {{choixCat}} !</h2>\r\n<footer class=\"blockquote-footer\"><h3>Quelles habitudes sont présentes dans ta vie quotidienne ?</h3></footer>\r\n</blockquote>\r\n<!--<ul *ngFor=\"let image of tabImagesCategorie\">\r\n<li>\r\n    <img [src]=\"image\">\r\n</li>\r\n</ul>-->\r\n<img [src]=\"tabImagesCategorie[indexImage] \"class=\"rounded-circle img-fluid\">\r\n<div class=\"reponse\">\r\n    <button class=\"btn btn-success align-content-center\" (click)=\"onOui()\">Oui</button>\r\n    <button class=\"btn btn-danger align-content-center\" (click)=\"onNon()\">Non</button>\r\n    <button class=\"btn btn-warning align-content-center\" (click)=\"onJeVoudrais()\">Je voudrais</button>\r\n</div>\r\n<!--<button routerLink=\"/partie\"> Jouer</button> -->\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<blockquote>\r\n<h2>Tu as choisi la catégorie {{choixCat}} !</h2>\r\n<footer class=\"blockquote-footer\"><h3>Quelles habitudes sont présentes dans ta vie quotidienne ?</h3></footer>\r\n</blockquote>\r\n<!--<ul *ngFor=\"let image of tabImagesCategorie\">\r\n<li>\r\n    <img [src]=\"image\">\r\n</li>\r\n</ul>-->\r\n<img [src]=\"tabImagesCategorie[indexImage] \"class=\"rounded-circle img-fluid\">\r\n<div class=\"reponse\">\r\n    <button class=\"btn btn-success align-content-center\" (click)=\"onOui()\">Oui</button>\r\n    <button class=\"btn btn-danger align-content-center\" (click)=\"onNon()\">Non</button>\r\n    <button class=\"btn btn-warning align-content-center\" (click)=\"onJeVoudrais()\">Je voudrais</button>\r\n</div>\r\n<p><ngb-progressbar type=\"success\" [value]=\"[indexImage]*(100/[tabImagesCategorie.length])\" [striped]=\"true\"></ngb-progressbar></p>\r\n<!--<button routerLink=\"/partie\"> Jouer</button> -->\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/fin-partie/fin-partie.component.html": 
@@ -83,7 +83,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("\r\n<button routerLink=\"/choixCategorie\" class=\"btn-link btn btn-block\">\r\n  <ngb-carousel *ngIf=\"images\" interval=\"1500\" class=\"rounded-circle img-fluid\">\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/responsabilites/acheter%20.jpg\" alt=\"Random first slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>viens Jouer</h3>\r\n\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/deplacement/bus.jpg\" alt=\"Random second slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/loisirs/television.jpg\" alt=\"Random third slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/nutrition/dresserlatable.jpg\" alt=\"Random third slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n  </ngb-carousel>\r\n</button>\r\n\r\n\r\n\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("\r\n<button routerLink=\"/choixCategorie\" class=\"btn-link btn btn-block\">\r\n  <ngb-carousel  interval=\"1500\" class=\"rounded-circle img-fluid\">\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/responsabilites/acheter%20.jpg\" alt=\"Random first slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>viens Jouer</h3>\r\n\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/deplacement/bus.jpg\" alt=\"Random second slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/loisirs/television.jpg\" alt=\"Random third slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template ngbSlide>\r\n      <div class=\"picsum-img-wrapper\">\r\n        <img src=\"../../assets/nutrition/dresserlatable.jpg\" alt=\"Random third slide\" class=\"rounded-circle img-fluid\">\r\n      </div>\r\n      <div class=\"carousel-caption\">\r\n        <h3>Viens jouer</h3>\r\n      </div>\r\n    </ng-template>\r\n  </ngb-carousel>\r\n</button>\r\n\r\n\r\n\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/partie/partie.component.html": 
@@ -94,7 +94,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h1>Tu as choisi la catégorie : {{choixCat}} ! </h1>\r\n<!---- <div *ngFor=\"let filtre of ordreFiltre\" class=\"mainFrame\">\r\n    <h2>{{filtre}}</h2>\r\n<img [src]=\"images[index].nom\">\r\n<img src=\"/images/deplacements/bus.jpg\">\r\n<img class=\"logo\" [src]=\"(imgPath + imgFileName)\" />\r\n\r\n<div class=\"reponse\">\r\n    <button class=\"btn btn-primary\" (click)=\"onOui()\">Oui</button>\r\n    <button class=\"btn btn-primary\" (click)=\"onNon()\">Non</button>\r\n    <button class=\"btn btn-primary\" (click)=\"onJsp()\">Je ne sais pas</button>\r\n</div>\r\n</div>\r\n-->\r\n\r\n<div *ngIf=\"isOnAime\" class=\"align-items-lg-center\">\r\n  <small class=\"text-muted\"><h2>Est-ce que j'aime..</h2></small>\r\n    <img [src]=\"tabImageJeu[indexImage]\" class=\"rounded-circle img-fluid\">\r\n</div>\r\n<div *ngIf=\"isOnAide\" class=\"align-items-lg-center\">\r\n    <!-- <app-filtre-aide ></app-filtre-aide> -->\r\n  <small class=\"text-muted\"><h2>Est-ce que j'ai besoin d'aide..</h2></small>\r\n    <img [src]=\"tabImageJeu[indexImage]\" class=\"rounded-circle img-fluid\">\r\n\r\n</div>\r\n<div *ngIf=\"isOnContent\" class=\"align-items-lg-center\">\r\n  <small class=\"text-muted\"><h2>Est-ce que je suis content..</h2></small>\r\n    <img [src]=\"tabImageJeu[indexImage]\" class=\"rounded-circle img-fluid\">\r\n\r\n</div>\r\n\r\n<div class=\"reponse\" class=\"align-content-lg-center\">\r\n   <button class=\"btn btn-success rounded-circle\" (click)=\"onOui()\">Oui</button>\r\n    <button class=\"btn btn-danger rounded-circle\" (click)=\"onNon()\">Non</button>\r\n   <button class=\"btn btn-warning rounded-circle\" (click)=\"onJsp()\">Je ne sais pas</button>\r\n</div>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<h1>Tu as choisi la catégorie : {{choixCat}} ! </h1>\r\n<!---- <div *ngFor=\"let filtre of ordreFiltre\" class=\"mainFrame\">\r\n    <h2>{{filtre}}</h2>\r\n<img [src]=\"images[index].nom\">\r\n<img src=\"/images/deplacements/bus.jpg\">\r\n<img class=\"logo\" [src]=\"(imgPath + imgFileName)\" />\r\n\r\n<div class=\"reponse\">\r\n    <button class=\"btn btn-primary\" (click)=\"onOui()\">Oui</button>\r\n    <button class=\"btn btn-primary\" (click)=\"onNon()\">Non</button>\r\n    <button class=\"btn btn-primary\" (click)=\"onJsp()\">Je ne sais pas</button>\r\n</div>\r\n</div>\r\n-->\r\n\r\n<div *ngIf=\"isOnAime\" class=\"align-items-lg-center\">\r\n  <small class=\"text-muted\"><h2>Est-ce que j'aime..</h2></small>\r\n    <img [src]=\"tabImageJeu[indexImage]\" class=\"rounded-circle img-fluid\">\r\n  <p><ngb-progressbar type=\"success\" [value]=\"[indexImage]*(100/[tabImageJeu.length])\" [striped]=\"true\"></ngb-progressbar></p>\r\n</div>\r\n<div *ngIf=\"isOnAide\" class=\"align-items-lg-center\">\r\n    <!-- <app-filtre-aide ></app-filtre-aide> -->\r\n  <small class=\"text-muted\"><h2>Est-ce que j'ai besoin d'aide..</h2></small>\r\n    <img [src]=\"tabImageJeu[indexImage]\" class=\"rounded-circle img-fluid\">\r\n  <p><ngb-progressbar type=\"success\" [value]=\"[indexImage]*(100/[tabImageJeu.length])\" [striped]=\"true\"></ngb-progressbar></p>\r\n</div>\r\n<div *ngIf=\"isOnContent\" class=\"align-items-lg-center\">\r\n  <small class=\"text-muted\"><h2>Est-ce que je suis content..</h2></small>\r\n    <img [src]=\"tabImageJeu[indexImage]\" class=\"rounded-circle img-fluid\">\r\n  <p><ngb-progressbar type=\"success\" [value]=\"[indexImage]*(100/[tabImageJeu.length])\" [striped]=\"true\"></ngb-progressbar></p>\r\n</div>\r\n\r\n<div class=\"reponse\" class=\"align-content-lg-center\">\r\n   <button class=\"btn btn-success rounded-circle\" (click)=\"onOui()\">Oui</button>\r\n    <button class=\"btn btn-danger rounded-circle\" (click)=\"onNon()\">Non</button>\r\n   <button class=\"btn btn-warning rounded-circle\" (click)=\"onJsp()\">Je ne sais pas</button>\r\n</div>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -726,6 +726,7 @@
                     this.router = router;
                     this.indexImage = 0;
                     this.tabImagesHabitudePresente = [];
+                    this.val = 1;
                 }
                 ChoixHabitudeComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -744,6 +745,7 @@
                         console.log("on passe à la partie");
                         console.log(this.tabImagesHabitudePresente);
                         this.router.navigateByUrl('/partie');
+                        this.val++;
                     }
                 };
                 ChoixHabitudeComponent.prototype.onNon = function () {
@@ -754,6 +756,7 @@
                         //console.log(this.gameService.tabImageHabitude)
                         console.log("on passe à la partie");
                         this.router.navigateByUrl('/partie');
+                        this.val++;
                     }
                 };
                 ChoixHabitudeComponent.prototype.onJeVoudrais = function () {
@@ -763,6 +766,7 @@
                         console.log(this.tabImagesHabitudePresente);
                         console.log("on passe à la partie");
                         this.router.navigateByUrl('/partie');
+                        this.val++;
                     }
                 };
                 return ChoixHabitudeComponent;
@@ -844,7 +848,6 @@
             var LetsPlayComponent = /** @class */ (function () {
                 function LetsPlayComponent(data) {
                     this.data = data;
-                    this.images = ['bus', 'marcher'].map(function (n) { return "../../assets/deplacement/"; });
                 }
                 LetsPlayComponent.prototype.ngOnInit = function () {
                 };
