@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {GameService} from '../../services/game.service';
+import { SocketService } from 'src/services/socket.service';
 
 
 @Component({
@@ -11,11 +12,19 @@ import {GameService} from '../../services/game.service';
 export class LetsPlayComponent implements OnInit {
 
   users:Object;
-
-  constructor(private data:GameService) { }
+  socketMessage: boolean
+  constructor(private data:GameService,
+    private socketService: SocketService) { }
 
   ngOnInit() {
-
+    this.socketMessage = false
+    setInterval(() => {
+      if (this.socketService.message){
+        this.socketMessage = true
+      }
+    }, 1000)
   }
+
+  
 
 }
