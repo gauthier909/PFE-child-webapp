@@ -3,8 +3,6 @@
   "title": "front-enfant",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "startApp": "ng serve",
     "start": "http-server dist/front-enfant",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
