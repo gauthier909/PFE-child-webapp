@@ -3,9 +3,7 @@
   "title": "front-enfant",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start2": "ng serve --proxy-config proxy.conf.json",
-    "start": "ng build --prod && http-server -c-1 --proxy-config proxy.conf.json dist/front-enfant",
+    "start": "http-server dist/front-enfant",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",

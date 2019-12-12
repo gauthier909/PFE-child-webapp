@@ -1,5 +1,5 @@
 
-<button routerLink="/choixCategorie" class="btn-link btn btn-block">
+<button routerLink="/choixCategorie" class="btn-link btn btn-block" [disabled]="!socketMessage">
   <ngb-carousel  interval="1500" class="rounded-circle img-fluid">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">

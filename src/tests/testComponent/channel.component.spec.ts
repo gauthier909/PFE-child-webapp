@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LetsPlayComponent } from './lets-play.component';
+import { ChannelComponent } from '../../app/channel/channel.component';
 
-describe('LetsPlayComponent', () => {
-  let component: LetsPlayComponent;
-  let fixture: ComponentFixture<LetsPlayComponent>;
+describe('ChannelComponent', () => {
+  let component: ChannelComponent;
+  let fixture: ComponentFixture<ChannelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LetsPlayComponent ]
+      declarations: [ ChannelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LetsPlayComponent);
+    fixture = TestBed.createComponent(ChannelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
