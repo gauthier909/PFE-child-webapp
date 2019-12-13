@@ -4,14 +4,15 @@ import { BehaviorSubject, Observable,of } from 'rxjs';
 import {Filtre} from '../app/partie/filtre';
 import { catchError, map, tap } from 'rxjs/operators';
 import {FiltreJeu} from '../app/partie/filtreJeu'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  private partieUrl = 'http://localhost:8080/partie';
-  private filtreUrl = 'http://localhost:8080/partie/filtre';
-  private imageCategorieUrl = 'http://localhost:8080/partie/imagesCategorie';
+  private partieUrl = environment.apiUrl + 'partie';
+  private filtreUrl = environment.apiUrl + 'partie/filtre';
+  private imageCategorieUrl = environment.apiUrl + 'partie/imagesCategorie';
 
   private choixCat = new BehaviorSubject<string>("");
   currentMessage = this.choixCat.asObservable();
