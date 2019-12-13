@@ -4,7 +4,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LetsPlayComponent } from './lets-play/lets-play.component';
-import { ChannelComponent } from './channel/channel.component';
 import { PartieComponent } from './partie/partie.component';
 import { ChoixCategorieComponent } from './choix-categorie/choix-categorie.component';
 import { ChoixHabitudeComponent } from './choix-habitude/choix-habitude.component';
@@ -17,7 +16,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     LetsPlayComponent,
-    ChannelComponent,
     PartieComponent,
     ChoixCategorieComponent,
     ChoixHabitudeComponent,
