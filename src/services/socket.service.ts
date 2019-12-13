@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client'
 import { Filtre } from '../app/partie/filtre'
+import { environment } from 'src/environments/environment';
 
-const IO_ROUTE = "http://localhost:8081"
 const IO_ROOM = "testRoom"
 
 @Injectable({
@@ -23,7 +23,7 @@ export class SocketService {
      * L'initialisation de la connection + ajout des listeners
      */
     socketInit() {
-        this.socket = io(IO_ROUTE)
+        this.socket = io(environment.apiUrl)
         this.socket.emit("joinRoom", IO_ROOM)
         this.socket.on("message", (message) => {
             this.message = message.message
